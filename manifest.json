@@ -1,0 +1,37 @@
+{
+"manifest_version": 3,
+"name": "aniDB Character Manager",
+"description": "A tool to manage and rename character roles on anidb.net with an interactive character table.",
+"version": "1.0",
+"permissions": ["storage", "tabs"],
+"icons": {
+    "16": "icons/16.png",
+    "32": "icons/48.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+},
+"action":{
+    "default_icon":{
+        "16": "icons/16.png",
+        "32": "icons/48.png",
+        "48": "icons/48.png",
+        "128": "icons/128.png"
+    }
+},
+"background": {
+    "service_worker": "./scripts/background.js"
+},
+"content_scripts":[{
+    "js":[
+        "./scripts/ag-grid-community.js",
+        "./scripts/main.js"
+    ],
+    "run_at": "document_idle",
+    "matches":[
+        "https://anidb.net/episode/*",
+        "https://anidb.net/anime/*",
+        "https://anidb.net/perl-bin/*"
+    ]
+}]
+
+}
